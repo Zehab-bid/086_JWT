@@ -1,5 +1,4 @@
 const db = require('../models');
-const komik = require('../models/komik');
 
 async function getAllKomik(req, res) {
  try{
@@ -40,7 +39,7 @@ async function updateKomik(req, res) {
     const { id } = req.params;
     const { title, description, author } = req.body;
     try {
-        const komik = await komik.findByPk(id);
+        const komik = await db.Komik.findByPk(id);
         if (!komik) {
             return res.status(404).json({ error: 'Komik not found' });
         }
@@ -58,7 +57,7 @@ async function updateKomik(req, res) {
 async function deleteKomik(req, res) {
     const { id } = req.params;
     try {
-        const komik = await komik.findByPk(id);
+        const komik = await db.Komik.findByPk(id);
         if (!komik) {
             return res.status(404).json({ error: 'Komik not found' });
         }
