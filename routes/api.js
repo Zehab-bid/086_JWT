@@ -3,7 +3,7 @@ const router = express.Router();
 
 const komikController = require("../controllers/komikController");
 const userController = require("../controllers/userController");
-const authMiddleware = require("../middleware/authMiddleware");
+const authMiddleware = require("../midleware/authMiddleware");
 
 router.post("/register", userController.register);
 router.post("/login", userController.login);
